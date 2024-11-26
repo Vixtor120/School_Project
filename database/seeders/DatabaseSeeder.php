@@ -10,6 +10,11 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
+        // Eliminar usuarios existentes con los mismos correos electrónicos
+        User::where('email', 'test@example.com')->delete();
+        User::where('email', 'admin@example.com')->delete();
+        User::where('email', 'student@example.com')->delete();
+
         // Crear un usuario específico
         $user = User::factory()->create([
             'name' => 'Test User',
@@ -25,5 +30,19 @@ class DatabaseSeeder extends Seeder
         User::factory(5)->has(
             Project::factory(3) // Cada usuario tiene 3 proyectos
         )->create();
+
+        User::factory()->create([
+            'name' => 'Admin User',
+            'email' => 'admin@example.com',
+            'password' => bcrypt('password'),
+            'role' => 'admin',
+        ]);
+
+        User::factory()->create([
+            'name' => 'Student User',
+            'email' => 'student@example.com',
+            'password' => bcrypt('password'),
+            'role' => 'student',
+        ]);
     }
 }
