@@ -1,37 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initialscale=1.0">
- <title>@yield('title', 'School Platform')</title>
- <link rel="stylesheet"
-href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min
-.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@yield('title', 'School Platform')</title>
+    <link href="/css/app.css" rel="stylesheet">
+    @vite('resources/css/app.css')
 </head>
-<body>
- <nav class="navbar navbar-expand-lg navbar-light bg-light">
- <div class="container">
- <a class="navbar-brand" href="{{ route('projects.index') 
-}}">School Platform</a>
- <div class="collapse navbar-collapse">
- <ul class="navbar-nav ms-auto">
- <li class="nav-item">
- <a class="nav-link" href="{{
-route('projects.index') }}">Projects</a>
- </li>
- <li class="nav-item">
- <a class="nav-link" href="{{
-route('projects.create') }}">Create Project</a>
- </li>
- </ul>
- </div>
- </div>
- </nav>
- <div class="container mt-4">
- @yield('content') 
- </div>
- <script
-src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundl
-e.min.js"></script>
+<body class="bg-gray-100">
+    <nav class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a class="text-2xl font-bold text-blue-600" href="{{ route('home') }}">School Platform</a>
+            <div class="space-x-4">
+                <a class="text-gray-700 hover:text-blue-600" href="{{ route('home') }}">Home</a>
+                <a class="text-gray-700 hover:text-blue-600" href="{{ route('projects.index') }}">Projects</a>
+                <a class="text-gray-700 hover:text-blue-600" href="{{ route('projects.create') }}">Create Project</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container mx-auto mt-8 px-4">
+        @yield('content')
+    </div>
 </body>
-</html> 
+</html>
